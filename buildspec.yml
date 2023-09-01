@@ -16,7 +16,7 @@ phases:
      
   build:
     commands:
-       cd /path/to/your-app
+       cd /home/ec2-user
        ./configure    # Configure your application if needed
        make           # Build your application
        make install   # Install your application
