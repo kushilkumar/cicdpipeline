@@ -5,19 +5,21 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - sudo yum -y update
-      - sudo yum -y install ruby
-      - sudo yum -y install wget
+       sudo yum -y update
+       sudo yum -y install ruby
+       sudo yum -y install wget
+       sudo yum -y install some-package   # Install a specific package
   pre_build:
     commands:
-      - cd /home/ec2-user
-      - wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
-      - sudo chmod +x ./install
-      - sudo ./install auto
+       cd /home/ec2-user
+       wget https://example.com/your-app.tar.gz   # Download your application or dependency
+       tar -xzf your-app.tar.gz   # Extract your application
   build:
     commands:
-      - sudo yum install -y python-pip
-      - sudo pip install awscli
+       cd /path/to/your-app
+       ./configure    # Configure your application if needed
+       make           # Build your application
+       make install   # Install your application
 
 artifacts:
   files: '**/*'
