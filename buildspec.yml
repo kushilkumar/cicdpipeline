@@ -5,22 +5,27 @@ phases:
     runtime-versions:
       python: 3.8
     commands:
-      - sudo yum -y update
-      - sudo yum -y install ruby
-      - sudo yum -y install wget
-      - sudo yum -y install some-package   # Install a specific package
+       sudo yum -y update
+       sudo yum -y install ruby
+       sudo yum -y install wget
+       sudo yum -y install some-package   # Install a specific package
   pre_build:
     commands:
-      - cd /home/ec2-user
-      - wget https://example.com/your-app.tar.gz   # Download your application or dependency
-      - tar -xzf your-app.tar.gz   # Extract your application
+       cd /home/ec2-user
+       wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install  # Download your application or dependency
+     
   build:
     commands:
-      - cd /path/to/your-app
-      - ./configure    # Configure your application if needed
-      - make           # Build your application
-      - make install   # Install your application
+       cd /path/to/your-app
+       ./configure    # Configure your application if needed
+       make           # Build your application
+       make install   # Install your application
 
 artifacts:
-  files: '**/*'
+  files:
+    - scripts/*     # Include all files in the 'scripts' directory
+    - README.md     # Include the README file
+    - aar_logo_final.png
+    - appspec.yml
+    - buildspec.yml
 
