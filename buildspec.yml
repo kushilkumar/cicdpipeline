@@ -4,5 +4,8 @@ phases:
   build:
     commands:
       - echo "Hello, World!"
+      sudo apt update -y 
+      sudo apt install apache2 -y 
+      sudo systemctl start apache2 
 artifacts:
   files: '**/*'
